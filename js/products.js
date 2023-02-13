@@ -1,5 +1,5 @@
 // 1 recuperer l'ID 
-// fetch le produit correspondant a l'id
+// rattachement de l'id a la page accueil
 const url = window.location.search;
 const searchParams = new URLSearchParams(url);
 const id = searchParams.get('id');
