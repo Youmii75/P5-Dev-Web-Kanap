@@ -1,3 +1,4 @@
+//recuperation des informations de l'API
 const accueil = () => {
     fetch("http://localhost:3000/api/products")
         .then(response => response.json())

@@ -1,4 +1,3 @@
-//etapes 
 // 1 si le panier n'existe pas dans le localstorage le creer 
 //  2 creer un objet panier a partir du localstorage contenant le panier
 let basketContent
@@ -179,7 +178,7 @@ function msgError(location, msg) {
     document.getElementById(location).innerText = `Verifiez votre saisie. ${msg}`
 }
 
-//creation de la commande finale
+//creation de la commande finale a envoyer
 async function generateNumberOrder() {
     const idsProducts = []
     for (let id in basketContent) {
