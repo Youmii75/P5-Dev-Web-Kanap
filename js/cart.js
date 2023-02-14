@@ -1,5 +1,4 @@
-// 1 si le panier n'existe pas dans le localstorage le creer 
-//  2 creer un objet panier a partir du localstorage contenant le panier
+// creer un objet panier a partir du localstorage contenant le panier
 let basketContent
 function loadBasketContent() { //initialisation du basket
     basketContent = JSON.parse(localStorage.getItem("panier"))
@@ -52,7 +51,7 @@ async function totalOfPrice() {
     return total
 }
 
-// 4 creer une boucle sur tableau pour generer l'html et l'injecter dans le DOM
+// creer une boucle sur tableau pour generer l'html et l'injecter dans le DOM
 async function updateViewBasket() {
     const articles = await getProductBasket()
     let display = '';
@@ -81,7 +80,7 @@ async function updateViewBasket() {
                     </article>
                     `
     }
-    // 5 mettre a jour le total des produits et du prix
+    // mettre a jour le total des produits et du prix
     document.querySelector('#cart__items').innerHTML = display
     document.querySelector("#totalQuantity").innerHTML = totalOfProducts()
     document.querySelector("#totalPrice").innerHTML = await totalOfPrice()
