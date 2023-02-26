@@ -142,7 +142,7 @@ async function validateFields(click) {
         isOk = false
     }
     else cleanError('lastNameErrorMsg');
-    if ((/^(?=.{2,40}$)(?:\w+[_+-.,!@#$%^&*();/|<>"]\w+)*$/).test(address.value) === true || address.value === "") {
+    if ((/^(?=.{2,40}$)(?:\w+[_+-.,!@#$%^&*();\/|<>"]\w+)*$/).test(address.value) === true || address.value === "") {
         msgError("addressErrorMsg", 'Veuillez utiliser que des lettres et des chiffres');
         isOk = false
     }
@@ -152,10 +152,10 @@ async function validateFields(click) {
         isOk = false
     }
     else cleanError('cityErrorMsg');
-    if ((/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?=.{2,6}$)(?:\w+[.][a-zA-Z]+)*$/).test(email.value) === false || email.value === "") {
+    if ((/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/).test(email.value) === false || email.value === "") {
         msgError("emailErrorMsg", 'Veuillez utiliser @ pour valider votre adresse mail.');
         isOk = false
-    }
+    } // la RegEx email du w3c est recommandée https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email
     else {
         cleanError("emailErrorMsg", 'emailErrorMsg')
     };

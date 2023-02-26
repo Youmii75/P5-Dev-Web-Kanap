@@ -11,20 +11,25 @@ async function viewProduct() {
   product = await fetch(`http://localhost:3000/api/products/${id}`);
   product = await product.json();
 
+  // titre de la page
+  document.title = product.name;
+
   // creation de la page produit
   // injection dans le DOM
-  let image = document.createElement('img');
+  const image = document.createElement('img');
   image.src = product.imageUrl;
+  image.alt = product.altTxt;
+
   document.getElementsByClassName('item__img')[0].appendChild(image);
-  document.getElementsByClassName("item__img").innerText = product.altTxt;
   document.getElementById("title").innerText = product.name;
   document.getElementById("price").innerText = product.price;
   document.getElementById("description").innerText = product.description;
 
   //creation de la liste pour le choix des couleurs 
   for (const colors of product.colors) {
-    let optionColor = document.createElement('option')
-    optionColor.innerText = colors
+    const optionColor = document.createElement('option');
+    optionColor.innerText = colors;
+    optionColor.value = colors.toLowerCase();
     document.getElementById('colors').appendChild(optionColor)
   }
 }
@@ -58,7 +63,7 @@ function onClickButton() {
   const color = document.querySelector('#colors').value;
 
   if (!quantity || !color) return;
-  if (quantity == 0) return;
+  if (quantity < 1) return alert("au moins un produit doit etre ajouté pour valider");
 
   updateBasket(`${product._id}`, color, quantity)
 }
