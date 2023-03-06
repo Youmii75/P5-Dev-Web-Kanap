@@ -206,7 +206,7 @@ async function generateNumberOrder() {
         .then((response) => { return response.json() })
         .then((data) => {
             location.href = `confirmation.html?id=${data.orderId}`,
-                localStorage.removeItem();
+                localStorage.clear();
         })
         .catch(() => {
             alert(`Une erreur est survenue`)
