@@ -156,6 +156,7 @@ async function validateFields(click) {
         msgError("emailErrorMsg", 'Veuillez utiliser @ pour valider votre adresse mail.');
         isOk = false
     } // la RegEx email du w3c est recommandée https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email
+        //https://stackoverflow.com/questions/201323/how-can-i-validate-an-email-address-using-a-regular-expression autre RegEx possible
     else {
         cleanError("emailErrorMsg", 'emailErrorMsg')
     };
