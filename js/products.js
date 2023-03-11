@@ -65,7 +65,7 @@ function onClickButton() {
   if (quantity < 1 || quantity > 100) return alert("La quantité doit etre comprise entre 1 et 100 pour pouvoir ajouter l'article ");
   // il n'est pas possible d'avoir plus de 100 memes articles
   updateBasket(`${product._id}`, color, quantity);
-};
+}
 
 const button = document.getElementById("addToCart")
 button.addEventListener("click", onClickButton)
