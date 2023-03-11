@@ -21,4 +21,3 @@ const accueil = () => {
 
 }
 accueil()
-

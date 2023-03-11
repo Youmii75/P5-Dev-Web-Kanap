@@ -53,7 +53,6 @@ function updateBasket(id, color, quantity) {
     newQuantity = newQuantity + Number(basketContent[idComposed].quantity);
   }
   basketContent[idComposed] = { id: id, color: color, quantity: newQuantity };
-  // console.log(basketContent);
   localStorage.setItem("panier", JSON.stringify(basketContent))
 }
 
@@ -63,8 +62,8 @@ function onClickButton() {
   const color = document.querySelector('#colors').value;
 
   if (!quantity || !color) return;
-  if (quantity < 1) return alert("au moins un produit doit etre ajouté pour valider");
-
+  if (quantity < 1 || quantity > 100) return alert("Il doit y avoir au minimum 1 produit pour valider l'article ");
+  // il n'est pas possible d'avoir plus de 100 memes articles
   updateBasket(`${product._id}`, color, quantity)
 }
 
