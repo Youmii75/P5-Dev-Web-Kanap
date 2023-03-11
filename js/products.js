@@ -61,11 +61,11 @@ function onClickButton() {
   const quantity = document.querySelector('#quantity').value;
   const color = document.querySelector('#colors').value;
 
-  if (!quantity || !color) return;
-  if (quantity < 1 || quantity > 100) return alert("Il doit y avoir au minimum 1 produit pour valider l'article ");
+  if (!quantity || !color) return alert ("Une couleur doit etre choisie pour valider l'ajout de l'article");
+  if (quantity < 1 || quantity > 100) return alert("La quantité doit etre comprise entre 1 et 100 pour pouvoir ajouter l'article ");
   // il n'est pas possible d'avoir plus de 100 memes articles
-  updateBasket(`${product._id}`, color, quantity)
-}
+  updateBasket(`${product._id}`, color, quantity);
+};
 
 const button = document.getElementById("addToCart")
 button.addEventListener("click", onClickButton)
